@@ -1,0 +1,60 @@
+/elevation_mapping:
+  ros__parameters:
+    elevation_map_topic: /elevation_map
+    enable_continuous_cleanup: true
+    enable_visibility_cleanup: true
+    front:
+      publish_on_update: true
+      queue_size: 1
+      sensor_processor:
+        apply_voxelgrid_filter: false
+        beam_angle: 0.0
+        beam_constant: 0.0
+        ignore_points_above: 0.2
+        ignore_points_below: -0.5
+        ignore_points_inside_max_x: 0.0
+        ignore_points_inside_max_y: 0.0
+        ignore_points_inside_max_z: 0.0
+        ignore_points_inside_min_x: 0.0
+        ignore_points_inside_min_y: 0.0
+        ignore_points_inside_min_z: 0.0
+        min_radius: 0.0
+        type: laser
+        voxelgrid_filter_size: 0.0
+      topic: /livox/lidar
+      type: pointcloud
+    input_sources:
+    - front
+    length_in_x: 12.0
+    length_in_y: 12.0
+    mahalanobis_distance_threshold: 2.5
+    map_frame_id: aft_mapped
+    max_horizontal_variance: 0.5
+    max_variance: 0.0009
+    min_horizontal_variance: 0.0006250000000000001
+    min_update_rate: 2.0
+    min_variance: 9.0e-06
+    multi_height_noise: 9.0e-06
+    position_x: 0.0
+    position_y: 0.0
+    qos_overrides:
+      /parameter_events:
+        publisher:
+          depth: 1000
+          durability: volatile
+          history: keep_last
+          reliability: reliable
+    resolution: 0.05
+    robot_base_frame_id: aft_mapped
+    robot_motion_map_update/covariance_scale: 1.0
+    robot_odom_cache_size: 200
+    robot_odom_topic: ''
+    scanning_duration: 0.1
+    time_tolerance: 0.2
+    track_point_frame_id: aft_mapped
+    track_point_x: 0.0
+    track_point_y: 0.0
+    track_point_z: 0.0
+    use_sim_time: false
+    visibility_cleanup_rate: 1.0
+

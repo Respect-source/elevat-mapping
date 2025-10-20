@@ -1,0 +1,48 @@
+/**:
+  ros__parameters:
+    # 地图参考坐标系（车体系，避免TF等待）
+    map_frame_id: aft_mapped
+
+    # 动态基座坐标系（即机器人所在坐标系）
+    base_frame_id: aft_mapped             # 部分版本使用
+    robot_base_frame_id: aft_mapped       # 另一部分版本使用
+    track_point_frame_id: aft_mapped
+
+    # 其他常规参数
+    robot_odom_topic: ""
+    length_in_x: 12.0
+    length_in_y: 12.0
+    resolution: 0.08
+    min_height: -1.0
+    max_height: 3.0
+    time_tolerance: 0.8
+
+    # 融合/清理参数（名称与源码一致）
+    min_variance: 0.0005
+    max_variance: 0.2
+    mahalanobis_distance_threshold: 3.5
+    multi_height_noise: 0.4
+    min_horizontal_variance: 0.001
+    max_horizontal_variance: 0.1
+
+    # 可见性清理（移除离开视线的障碍）
+    enable_visibility_cleanup: true
+    visibility_cleanup_rate: 0.5
+    enable_continuous_cleanup: false
+
+    # 融合时间窗口/最低更新率（比赛场地优化）
+    scanning_duration: 0.1
+    min_update_rate: 10.0
+
+    # 输入点云源（支持多路）
+    input_sources: ["front"]
+
+    # 输入源配置
+    front:
+      type: pointcloud
+      topic: /livox/lidar
+      queue_size: 5
+      publish_on_update: true
+      publish_raw_map: false
+      sensor_processor:
+        type: laser
